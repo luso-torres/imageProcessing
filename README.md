@@ -35,7 +35,7 @@ The first section of this project is designed to import and manipulate images of
   </table>
 </div>
 
-## Manipulations
+## 2. Grayscale
 
 As described above, now, we implement the codes
 
