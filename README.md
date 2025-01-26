@@ -1,4 +1,4 @@
-![WP_20160127_088](https://github.com/user-attachments/assets/c70a2dad-93e4-404b-9a70-7d883a437c20)![y87](https://github.com/user-attachments/assets/07d3c41b-f93d-4e5f-b625-7f9f82ba535c)# Image Processing for Stochastic Class Discrimination
+# Image Processing for Stochastic Class Discrimination
 
 Classifier algorithm for images with accuracy evaluation. Class discrimination utilizes Naïve Bayes, Linear, and
 Quadratic discriminators. Currently in development.
