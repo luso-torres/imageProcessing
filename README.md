@@ -42,7 +42,7 @@ As described above, now, we implement the codes
 ``` python
 folder_path = os.getcwd()
     for fileName in os.listdir(folder_path):
-        if (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')) and (not fileName.startswith('resized')):
+        if (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')):
                 image = Image.open(f'.\images\{fileName}').convert("L")
 ```
 
