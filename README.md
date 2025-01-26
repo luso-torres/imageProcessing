@@ -34,7 +34,7 @@ The first section of this project is designed to import and manipulate images of
 
 ## Image 5
 <div align="center">
-  <img src="![resized 87 ><](https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_y87.jpg)" alt="Description" width="300">
+  <img src="(https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_y87.jpg)" alt="Description" width="300">
 </div>
 
 
