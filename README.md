@@ -7,7 +7,9 @@ Quadratic discriminators. Currently in development.
 
 The first section of this project is designed to import and manipulate images of any format. More specifically, the set of images below were used as references for the algorithm.
 
-![5 >](https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_5.png)
+![5 ><](https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_5.png)
+
+## Image 2
 ![CDR05_0017 <](https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_CDR05_0017.jpg)
 
 
