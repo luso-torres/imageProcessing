@@ -43,7 +43,7 @@ As described above, now, we implement the codes
 folder_path = os.getcwd()
     for fileName in os.listdir(folder_path):
         if (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')) and (not fileName.startswith('resized')):
-                image = Image.open(".\images\{fileName}).convert("L")
+                image = Image.open(f'.\images\{fileName}').convert("L")
 ```
 
 Responsible for reading the images and converting them in a grayscale equivalent image.
