@@ -1,22 +1,22 @@
 import numpy as np
 import moments
 
-def skewness(hist: np.ndarray, expectation: float) -> float:
+def skewness(scale: np.ndarray, pmf: np.ndarray, expectation: float) -> float:
     """
-    Calculate the skewness of a histogram.
+    Calculate the skewness of a pmf.
     """
-    central_third_moment = moments.central_third_order_moment(hist, expectation)
-    central_second_moment = moments.central_second_order_moment(hist, expectation)
+    central_third_moment = moments.central_third_order_moment(scale,pmf, expectation)
+    central_second_moment = moments.central_second_order_moment(scale,pmf, expectation)
     skewness = central_third_moment / (central_second_moment**(3/2))
     return skewness
 
 import numpy as np
 
-def kurtosis(hist: np.ndarray, expectation: float) -> float:
+def kurtosis(scale: np.ndarray,pmf: np.ndarray, expectation: float) -> float:
     """
-    Calculate the kurtosis of a histogram.
+    Calculate the kurtosis of a random variable.
     """
-    central_fourth_moment = moments.central_fourth_order_moment(hist, expectation)
-    central_second_moment = moments.central_second_order_moment(hist, expectation)
+    central_fourth_moment = moments.central_fourth_order_moment(scale,pmf, expectation)
+    central_second_moment = moments.central_second_order_moment(scale,pmf, expectation)
     kurtosis = central_fourth_moment / (central_second_moment**2)
     return kurtosis

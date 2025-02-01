@@ -1,7 +1,11 @@
-#import numpy as np
+import numpy as np
+import os
 #import expectancy
 
-pmf = [0, .1, .3, .4]
+subfolder = "my_subfolder"
+folder_path = os.getcwd()
+# Construct the full path
+subfolder_path = os.path.join(folder_path, subfolder)
 
 #result = expectancy.expectedValue(pmf)
-print(help(str))
+print(subfolder_path)
