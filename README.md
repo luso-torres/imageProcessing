@@ -7,8 +7,43 @@ Quadratic discriminators. Currently in development.
 
 The first section of this project is designed to import and manipulate images of any format. More specifically, the set of images below were used as references for the algorithm.
 
-![y87](https://github.com/user-attachments/assets/c873046e-2d5c-42a7-8d05-9bed4d314da2)
-![WP_20160127_088](https://github.com/user-attachments/assets/af970f4b-5090-471e-88a1-97313c212909)
-![Snap-310](https://github.com/user-attachments/assets/9f439661-5c33-4842-bbc5-2f1edd198a6c)
-![CDR05_0017](https://github.com/user-attachments/assets/9790a5fe-6028-46ec-824d-048ab56c5e0b)
-![5](https://github.com/user-attachments/assets/46f0af00-be84-4260-a8e4-b03f96a4a0aa)
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+       <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_5.png" alt="Description" width="300">
+        <p><i>Breast X-ray</i></p>
+      </td>
+      <td align="center">
+        <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_CDR05_0017.jpg" alt="Description" width="300">
+        <p><i>Brain X-ray</i></p>
+      </td>
+      <td align="center">
+       <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_Snap-310.jpg" alt="Description" width="300">
+        <p><i>Nut</i></p>
+      </td>
+      <td align="center">
+        <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_WP_20160127_088.jpg" alt="Description" width="300">
+        <p><i>Leaf</i></p>
+      </td>
+       <td align="center">
+        <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_y87.jpg" alt="Description" width="300">
+        <p><i>Brain with pathology</i></p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+## 2. Grayscale
+
+As described above, now, we implement the codes
+
+``` python
+folder_path = os.getcwd()
+    for fileName in os.listdir(folder_path):
+        if (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')):
+                image = Image.open(f'.\images\{fileName}').convert("L")
+```
+
+Responsible for reading the images and converting them in a grayscale equivalent image.
