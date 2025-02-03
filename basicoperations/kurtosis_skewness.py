@@ -1,5 +1,5 @@
 import numpy as np
-import moments
+from . import moments
 
 def skewness(scale: np.ndarray, pmf: np.ndarray, expectation: float) -> float:
     """
