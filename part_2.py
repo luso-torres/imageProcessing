@@ -9,7 +9,7 @@ from basicoperations import requantize
 from modules.verify_file import verifyFile
 from modules.bins_correction import binsCorrection
 from modules import rewrite_files  
-from basicoperations import squared_range
+#from basicoperations import squared_range
 from basicoperations import * 
 
 # Loadig a grayscale image
@@ -50,11 +50,15 @@ for fileName in (target_dir.rglob("*")):
         kurt = kurtosis_skewness.kurtosis(unique_values,pmf,meanValue)
         E = entropy.evaluateEntropy(pmf) 
 
-        data = [0]*8
+        data = [0]*9
         data[0] = expectedValue
         data[1] = modeValue
         data[2] = medianValue
-        data[3] = squared_range(unique_values)
+        data[3] = squared_range.squaredRange(unique_values)
+        data[4] = centralSecond
+        data[5] = skew
+        data[6] = kurt
+        data[7] = E
 
 
         if fileName.__contains__('Alzheimer'):
@@ -67,7 +71,7 @@ for fileName in (target_dir.rglob("*")):
             number =3
         else:
             number =4
-
+        data[8] = number
 #write the files
         verifyFile(data, number)
 #rewrite the original

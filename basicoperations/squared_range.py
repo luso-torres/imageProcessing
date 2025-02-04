@@ -1,12 +1,12 @@
 import numpy as np
 
 def squaredRange(data) -> float:
-    
+    data = np.array(data)
     min_val = np.inf
     max_val = -np.inf
     for info in data:
         if (info != 0) and (info<min_val):
-            min_val = info
+            min_val = float(info)
         elif info > max_val:
             max_val = info
         else:

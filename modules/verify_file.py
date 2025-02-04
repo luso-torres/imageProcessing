@@ -3,8 +3,8 @@ import os
 
 def verifyFile(line,file_path) -> None:
     #file_path = os.getcwd()  # Get the current working directory
-    file_name = "files-generated.csv"
-    line_to_append = f'{line[0]},{line[1]},{line[2]},{line[3]},{line[4]},{line[5]},{line[6]},{line[7]},\n'
+    file_name = "work4part_2.csv"
+    line_to_append = f'{line[0]},{line[1]},{line[2]},{line[3]},{line[4]},{line[5]},{line[6]},{line[7]},{line[8]}\n'
 
     # Read the content of the file if it exists
     if os.path.exists(file_name):
