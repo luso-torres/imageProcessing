@@ -8,7 +8,7 @@ from basicoperations import requantize
 
 # Loadig a grayscale image
 
-subfolder = "images"
+subfolder = "Image dataset/Skin_Cancer"
 folder_path = os.getcwd()
 # Construct the full path
 subfolder_path = os.path.join(folder_path, subfolder)
@@ -19,9 +19,10 @@ print('Address ',subfolder_path)
 choose = 1
 i=1
 
+#Selects the test file
 for fileName in os.listdir(subfolder_path):
     if  (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')) and (not fileName.startswith('resized')):
-        if (i==choose):
+        if (fileName.__contains__('36.jpg')):
             print(f'Selected Image: {fileName}')
             image_path = os.path.join(subfolder_path, fileName)
             image = Image.open(image_path)
@@ -40,12 +41,24 @@ num_levels = 8
 requantized_image = requantize.requantize_image(image_array, num_levels)
 
 # Construct histogram
-unique_values, counts = np.unique(requantized_image, return_counts=True)
+
+unique, countsv = np.unique(requantized_image, return_counts=True)
+
+# Bins correction (inserting the zero states)
+unique_values = [0]*(int((num_levels)))
+counts = [0.0]*(int((num_levels)))
+for i in range(len(unique)):
+    #print(unique[i])
+    for j in range(num_levels):  
+        if (unique[i] == 256/num_levels*j):
+            unique_values[j] = unique[i]
+            counts[j] = countsv[i]
+            print(counts[j])
 pmf = counts/(sum(counts))
-xpmf = unique_values*pmf
+
 
 # Calculating metrics
-meanValue,expectedValue, modeValue, medianValue = features.calculateValues(unique_values,pmf,xpmf)
+meanValue,expectedValue, modeValue, medianValue = features.calculateValues(unique_values,pmf,unique_values*pmf)
 
 
 secondOrderMoment = moments.second_order_moment(unique_values,pmf)
