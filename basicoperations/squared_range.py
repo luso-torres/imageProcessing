@@ -12,5 +12,5 @@ def squaredRange(data) -> float:
         else:
             continue
     squared_range = (max_val - min_val)**2
-    print(f'Min and max values: {min_val}, {max_val},\nSquared range {squared_range}\n')
+    #print(f'Min and max values: {min_val}, {max_val},\nSquared range {squared_range}\n')
     return squared_range

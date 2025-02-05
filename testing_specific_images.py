@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 import os
+from pathlib import Path
 
 #import basicoperations
 from basicoperations import *
@@ -9,6 +10,8 @@ from basicoperations import requantize
 # Loadig a grayscale image
 
 subfolder = "Image dataset/Skin_Cancer"
+cwd = Path.cwd()
+data_file = cwd / "Data.csv"
 folder_path = os.getcwd()
 # Construct the full path
 subfolder_path = os.path.join(folder_path, subfolder)
@@ -76,3 +79,6 @@ print(f'Momento 2: {secondOrderMoment},\n Segundo Central: {centralSecond}\nMome
 
 # Plot the histogram
 plot.plots(unique_values,counts)
+
+from modules import rewrite_files
+rewrite_files.rewriteFiles(data_file)     
