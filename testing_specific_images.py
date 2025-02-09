@@ -2,14 +2,14 @@ import numpy as np
 from PIL import Image
 import os
 from pathlib import Path
-
+from skimage.io import imread
 #import basicoperations
 from basicoperations import *
 from basicoperations import requantize
 
 # Loadig a grayscale image
 
-subfolder = "Image dataset/Skin_Cancer"
+subfolder = "Image dataset/COVID"
 cwd = Path.cwd()
 data_file = cwd / "Data.csv"
 folder_path = os.getcwd()
@@ -25,7 +25,7 @@ i=1
 #Selects the test file
 for fileName in os.listdir(subfolder_path):
     if  (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')) and (not fileName.startswith('resized')):
-        if (fileName.__contains__('36.jpg')):
+        if (fileName.__contains__('COVID-1.jpg')):
             print(f'Selected Image: {fileName}')
             image_path = os.path.join(subfolder_path, fileName)
             image = Image.open(image_path)
@@ -40,7 +40,7 @@ image_array = np.array(image)
 # Requantize to 4 bits = 16 levels (e.g., 0, 16, 32, 48, 64, 80, 96, 112, 128, 144, 160, 176, 192, 208, 224, 240 )
 # Requantize to 2 bits = 4 levels (e.g., 0, 64, 128, 192)
 # Requantize to 1 bit = 2 levels (e.g. 0, 256)
-num_levels = 8
+num_levels = 256
 requantized_image = requantize.requantize_image(image_array, num_levels)
 
 # Construct histogram
@@ -57,11 +57,18 @@ for i in range(len(unique)):
             unique_values[j] = unique[i]
             counts[j] = countsv[i]
             print(counts[j])
-pmf = counts/(sum(counts))
+pmf = [0]*int(num_levels)
+for i in range(num_levels):
+    pmf[i] = round(counts[i]/float((sum(counts))),4)
+
+xpmf = np.array(unique_values)*pmf
+
+
 
 
 # Calculating metrics
-meanValue,expectedValue, modeValue, medianValue = features.calculateValues(unique_values,pmf,unique_values*pmf)
+meanValue,expectedValue, modeValue, medianValue = features.calculateValues(unique_values,pmf,xpmf)
+
 
 
 secondOrderMoment = moments.second_order_moment(unique_values,pmf)
@@ -81,4 +88,4 @@ print(f'Momento 2: {secondOrderMoment},\n Segundo Central: {centralSecond}\nMome
 plot.plots(unique_values,counts)
 
 from modules import rewrite_files
-rewrite_files.rewriteFiles(data_file)     
+rewrite_files.rewriteFiles(data_file,'output_sorted.csv')     
