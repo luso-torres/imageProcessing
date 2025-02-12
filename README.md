@@ -29,7 +29,7 @@ The first section of this project is designed to import and manipulate images of
       </td>
        <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/Image%20dataset/Skin_Cancer/1.jpg" alt="Description" width="300">
-        <p><i>Brain with pathology</i></p>
+        <p><i>Skin Cancer</i></p>
       </td>
     </tr>
   </table>
