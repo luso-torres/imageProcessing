@@ -28,8 +28,8 @@ The first section of this project is designed to import and manipulate images of
         <p><i>Leaf</i></p>
       </td>
        <td align="center">
-        <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_y87.jpg" alt="Description" width="300">
-        <p><i>Brain with pathology</i></p>
+        <img src="https://github.com/luso-torres/imageProcessing/blob/main/Image%20dataset/Skin_Cancer/1.jpg" alt="Description" width="300">
+        <p><i>Skin Cancer</i></p>
       </td>
     </tr>
   </table>
