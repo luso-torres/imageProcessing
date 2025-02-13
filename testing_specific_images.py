@@ -85,7 +85,7 @@ print("Media:", meanValue,"\nExpectancia:",expectedValue,"\nModa:",modeValue,"\n
 print(f'Momento 2: {secondOrderMoment},\n Segundo Central: {centralSecond}\nMomento 3: {thirdOrderMoment},\nTerceiro Central: {centralThird},\nSkewness: {skew},\nKurtosis: {kurt}')
 
 # Plot the histogram
-plot.plots(unique_values,counts)
+#plot.plots(unique_values,counts)
 
-from modules import rewrite_files
-rewrite_files.rewriteFiles(data_file,'output_sorted.csv')     
+#from modules import rewrite_files
+#rewrite_files.rewriteFiles(data_file,'output_sorted.csv')     
