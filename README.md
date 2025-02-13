@@ -40,10 +40,11 @@ The first section of this project is designed to import and manipulate images of
 As described above, now, we implement the codes
 
 ``` python
+import PIL as Image
 folder_path = os.getcwd()
     for fileName in os.listdir(folder_path):
         if (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')):
                 image = Image.open(f'.\images\{fileName}').convert("L")
 ```
 
-Responsible for reading the images and converting them in a grayscale equivalent image.
+Responsible for reading the images and converting them in a grayscale equivalent image. The library Image (PIL), has the function open that allow us to analyze our dataset.
