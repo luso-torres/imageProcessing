@@ -9,7 +9,7 @@ from basicoperations import requantize
 
 # Loadig a grayscale image
 
-subfolder = "images"
+subfolder = "Images"
 cwd = Path.cwd()
 data_file = cwd / "Data.csv"
 folder_path = os.getcwd()
@@ -25,7 +25,12 @@ i=1
 #Selects the test file
 for fileName in os.listdir(subfolder_path):
     if  (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')) and (not fileName.startswith('resized')):
-        if (fileName.__contains__('COVID-1.jpg')):
+        if (fileName.__contains__('WP_20160127_088.jpg')):
+            # 1.jpg # Cancer
+            # 5.png # covid
+# CDR05_0017.jpg # alzheimer
+# Snap-310.jpg #semente
+# WP_20160127_088.jpg #folha
             print(f'Selected Image: {fileName}')
             image_path = os.path.join(subfolder_path, fileName)
             image = Image.open(image_path)
@@ -85,7 +90,7 @@ print("Media:", meanValue,"\nExpectancia:",expectedValue,"\nModa:",modeValue,"\n
 print(f'Momento 2: {secondOrderMoment},\n Segundo Central: {centralSecond}\nMomento 3: {thirdOrderMoment},\nTerceiro Central: {centralThird},\nSkewness: {skew},\nKurtosis: {kurt}')
 
 # Plot the histogram
-#plot.plots(unique_values,counts)
+plot.plots(unique_values,counts)
 
 #from modules import rewrite_files
 #rewrite_files.rewriteFiles(data_file,'output_sorted.csv')     
