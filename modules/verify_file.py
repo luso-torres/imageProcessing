@@ -3,8 +3,6 @@ import numpy as np
 
 
 def verifyFile(line,number,file_name) -> None:
-    #file_path = os.getcwd()  # Get the current working directory
-    #file_name = "work4part_2.csv"
     line_to_append = f'{line},{number}'
 
     # Read the content of the file if it exists
