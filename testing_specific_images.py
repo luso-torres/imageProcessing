@@ -25,7 +25,12 @@ i=1
 #Selects the test file
 for fileName in os.listdir(subfolder_path):
     if  (fileName.endswith('.png') or fileName.endswith('.jpg') or fileName.endswith('.bmp')) and (not fileName.startswith('resized')):
-        if (fileName.__contains__('COVID-1.jpg')):
+        if (fileName.__contains__('WP_20160127_088')):
+            # 1.jpg -> Cancer
+            # 5.png -> COVID
+            # CDR05_0017.jpg -> Alzheimer
+            # Snap-310.jpg -> Seed
+            # WP_20160127_088 -> Leaf
             print(f'Selected Image: {fileName}')
             image_path = os.path.join(subfolder_path, fileName)
             image = Image.open(image_path)
@@ -77,15 +82,16 @@ centralSecond = moments.central_second_order_moment(unique_values,pmf,expectedVa
 centralThird = moments.central_third_order_moment(unique_values,pmf,expectedValue)
 skew = kurtosis_skewness.skewness(unique_values,pmf,meanValue)
 kurt = kurtosis_skewness.kurtosis(unique_values,pmf,meanValue)
-E = entropy.evaluateEntropy(pmf) 
+
+ent = entropy.evaluateEntropy(pmf) 
 
 
 
 print("Media:", meanValue,"\nExpectancia:",expectedValue,"\nModa:",modeValue,"\nMediana:",medianValue)
-print(f'Momento 2: {secondOrderMoment},\n Segundo Central: {centralSecond}\nMomento 3: {thirdOrderMoment},\nTerceiro Central: {centralThird},\nSkewness: {skew},\nKurtosis: {kurt}')
-
+print(f'Variancia: {centralSecond},\nTerceiro Central: {centralThird},\nSkewness: {skew},\nKurtosis: {kurt}, \nMomento 2: {secondOrderMoment},\nMomento 3: {thirdOrderMoment}')
+print("Entropia: ",ent)
 # Plot the histogram
-#plot.plots(unique_values,counts)
+plot.plots(unique_values,counts)
 
 #from modules import rewrite_files
 #rewrite_files.rewriteFiles(data_file,'output_sorted.csv')     
