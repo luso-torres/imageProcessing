@@ -47,4 +47,4 @@ folder_path = os.getcwd()
                 image = Image.open(f'.\images\{fileName}').convert("L")
 ```
 
-Responsible for reading the images and converting them in a grayscale equivalent image. The library Image (PIL), has the function open that allow us to analyze our dataset.
+Responsible for reading the images and converting them in a grayscale equivalent image. The library Image (PIL), has the function open that allow us to analyze our dataset;
