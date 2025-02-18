@@ -91,7 +91,7 @@ print("Media:", meanValue,"\nExpectancia:",expectedValue,"\nModa:",modeValue,"\n
 print(f'Variancia: {centralSecond},\nTerceiro Central: {centralThird},\nSkewness: {skew},\nKurtosis: {kurt}, \nMomento 2: {secondOrderMoment},\nMomento 3: {thirdOrderMoment}')
 print("Entropia: ",ent)
 # Plot the histogram
-plot.plots(unique_values,counts)
+#plot.plots(unique_values,counts)
 
 #from modules import rewrite_files
 #rewrite_files.rewriteFiles(data_file,'output_sorted.csv')     
