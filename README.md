@@ -71,7 +71,7 @@ for i in range(num_levels):
     pmf[i] = round(counts[i]/float((sum(counts))),4)
 ```
 
-Then by applying the `matplotlib` library:
+Then by applying the `matplotlib` library with 8 bins (8 bits quantization of the original image):
 <div align="center">
   <table>
     <tr>
