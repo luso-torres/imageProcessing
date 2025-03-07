@@ -48,3 +48,25 @@ folder_path = os.getcwd()
 ```
 
 Responsible for reading the images and converting them in a grayscale equivalent image. The library Image (PIL), has the function open that allow us to analyze our dataset;
+
+
+## 3. Generating the Histograms
+
+The following histograms were obtained by the logic:
+``` python
+unique, countsv = np.unique(requantized_image, return_counts=True)
+
+# Bins correction (inserting the zero states)
+unique_values = [0]*(int((num_levels)))
+counts = [0.0]*(int((num_levels)))
+for i in range(len(unique)):
+    #print(unique[i])
+    for j in range(num_levels):  
+        if (unique[i] == 256/num_levels*j):
+            unique_values[j] = unique[i]
+            counts[j] = countsv[i]
+            print(counts[j])
+pmf = [0]*int(num_levels)
+for i in range(num_levels):
+    pmf[i] = round(counts[i]/float((sum(counts))),4)
+```
