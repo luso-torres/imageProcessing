@@ -98,3 +98,65 @@ Then by applying the `matplotlib` library with 8 bins (8 bits quantization of th
     </tr>
   </table>
 </div>
+
+# Generating Features
+For this project the following features will be considered:
+Mean, representing the central value of our dataset, expressed in terms of: 
+
+$$\bar{X} = \frac{1}{N}\sum_{x=0}^{N-1} P_X (x)$$
+
+where 
+- $X$ is a random variable.
+- $N$ is the total number of samples.
+- $P_X$ is the probability mass function of the random variable X.
+- $x$ is the $i$-th random variable of the sum operation.
+
+The expectation operator, representing a long-term average we would expect if you repeated it infinitely under the same conditions:
+
+$$\mathbb{E}[X] = \mu_X = \sum_{x=0}^{N-1} xP_X(x) $$
+
+where
+- $\mu_X$ is the true average of our sample space.
+- $X$ is a random variable
+- $N$ is the total number of samples
+- $P_X$ is the probability mass function of the random variable X
+
+The mode, which represents the value with most frequency, obtained for example with:
+```python
+def mode(num_levels,pmf) -> int:
+    maxV = -np.inf # initialize
+    for i in range (num_levels):
+        if (pmf[i] >= maxV):
+            position = i
+            maxV = pmf[i]
+    return position
+```
+
+The median, which divides the data in two equal sizes of 50%, obtained in terms of the Cumulative Distribution Function (CDF):
+```python
+def median(num_levels,pmf) -> int:
+    cdf = [0]*num_levels #initialize
+    cdf[0] = pmf[0]
+    for i in range (1,num_levels):
+        cdf[i] = pmf+cdf[i-1]
+        if (cdf[i] >= 0.50):
+            return i
+\end{python}
+```
+
+Variance, also known as second order central moment of our data, reflecting the dispersion or degree of spreadness of the dataset. It shows how much individual values deviate from the mean. It can be obtained by:
+
+$$Var(X) = E[(X-\mu_X)^2] = \sum_{x=0}^{N-1} x^2P_X(x)$$
+
+_Skewness_, characterizing the imbalance or asymmetry of data around its mean:
+
+$$\bar{\mu}_3= \mathbb{E}\left[ \left(\frac{X-\mu_X}{\sigma_X}\right)^3 \right]  = \frac{\mu_3}{\sigma_x^3}$$
+
+_Kurtosis_, characterizing the peakedness or shape of data distribution tails. Higher peakedness suggests sharper peaks, whereas lower _kurtosis_ indicates flatter peaks. The mathematical representation is:
+
+$$kurt[X]= \frac{\mu_4}{\sigma_4}=\left[\frac{\mathbb{E}\left[(X-\mu_X)^4\right]}{\left( \mathbb{E}[(X - \mu_X)^2]\right)^2}\right]$$
+
+
+# Classification
+
+# Model Evaluation and Cross Validation
