@@ -141,7 +141,6 @@ def median(num_levels,pmf) -> int:
         cdf[i] = pmf+cdf[i-1]
         if (cdf[i] >= 0.50):
             return i
-\end{python}
 ```
 
 Variance, also known as second order central moment of our data, reflecting the dispersion or degree of spreadness of the dataset. It shows how much individual values deviate from the mean. It can be obtained by:
