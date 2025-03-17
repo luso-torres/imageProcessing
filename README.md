@@ -308,7 +308,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticD
 from sklearn.naive_bayes import GaussianNB
 
 # 1. Loading data.csv
-data = pd.read_csv('data_work_3_sorted.csv')
+data = pd.read_csv('feature_dataset.csv')
 
 # We suppose that the last column is the class
 X = data.iloc[:, :-1].values
