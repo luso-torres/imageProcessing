@@ -336,4 +336,7 @@ qda_classifier.fit(X_train_scaled, y_train)
 qda_predictions = qda_classifier.predict(X_test_scaled)
 ```
 # Model Evaluation and Cross Validation
+
+
+## Implementation
 `metrics.classification_report` and `metrics.confusion_matrix`
