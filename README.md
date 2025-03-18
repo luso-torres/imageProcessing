@@ -174,12 +174,13 @@ Finally, applying the calculations, we can resume the resulting features for the
 | Mode                  | 0      | 0         | 224   | 96    | 160    |
 | Median                | 96     | 0         | 224   | 128   | 160    |
 | Variance              | 681.74 | 859.13    | 445.89| 223.69| 122.61 |
-| 3rd Central Moment    | -5.66×10^4 | 4.37×10^5 | -3.37×10^5 | 2.07×10^4 | -5.07×10^4 |
+| 3rd Central Moment    | -5.66×10<sup>4</sup> | 4.37×10<sup>5</sup> | -3.37×10<sup>5</sup> | 2.07×10<sup>4</sup> | -5.07×10<sup>4</sup> |
 | **Skewness**          | -11.09 | -16.29    | 24.07 | 19.71 | 23.56  |
 | **Kurtosis**          | 112.87 | 81.93     | 76.11 | 156.20| 103.81 |
-| 2nd Moment            | 1.61×10^4 | 1.12×10^4 | 4.13×10^4 | 1.65×10^4 | 2.53×10^4 |
-| 3rd Moment            | 2.73×10^6 | 2.08×10^6 | 9.09×10^6 | 2.45×10^6 | 4.21×10^6 |
+| 2nd Moment            | 1.61×10<sup>4</sup> | 1.12×10<sup>4</sup> | 4.13×10<sup>4</sup> | 1.65×10<sup>4</sup> | 2.53×10<sup>4</sup> |
+| 3rd Moment            | 2.73×10<sup>6</sup> | 2.08×10<sup>6</sup> | 9.09×10<sup>6</sup> | 2.45×10<sup>6</sup> | 4.21×10<sup>6</sup> |
 | Entropy               | 2.81   | 2.26      | 1.01  | 2.36  | 1.79   |
+
 
 # Generating a CSV with the Database
 
@@ -258,7 +259,7 @@ Linear Discriminant Analysis (LDA) is a probabilistic classifier that identifies
 
 LDA relies on the estimated mean vector ($\mu$) and covariance matrix ($\Sigma$) for each class to compute the discriminant function:
 
-$$ g_i(x) = xT\Sigma{-1}\mu_i - \frac{1}{2} \mu_iT\Sigma{-1}\mu_i + \ln P(y=i) $$
+$$ g_i(x) = x^T\Sigma^{-1}\mu_i - \frac{1}{2} \mu_i^T\Sigma^{-1}\mu_i + \ln P(y=i) $$
 
 Where:
 
@@ -270,7 +271,7 @@ Quadratic Discriminant Analysis (QDA) extends LDA by relaxing the assumption of 
 
 Like LDA, QDA begins by estimating the mean vector ($\mu_i$) and covariance matrix ($\Sigma_i$) for each class. The discriminant function for QDA is given by:
 
-$$ g_i(x) = -\frac{1}{2}(x-\mu_i)T\Sigma_i{-1}(x-\mu_i) - \frac{1}{2} \ln |\Sigma_i| + \ln P(y=i) $$
+$$ g_i(x) = -\frac{1}{2}(x-\mu_i)^T\Sigma_i^{-1}(x-\mu_i) - \frac{1}{2} \ln |\Sigma_i| + \ln P(y=i) $$
 
 With its curved decision boundary, QDA offers greater flexibility compared to LDA. However, this increased flexibility comes at the cost of requiring a larger training dataset.
 
