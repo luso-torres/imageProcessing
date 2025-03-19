@@ -336,6 +336,13 @@ qda_classifier.fit(X_train_scaled, y_train)
 qda_predictions = qda_classifier.predict(X_test_scaled)
 ```
 # Model Evaluation and Cross Validation
+The metrics for measuring the effectiveness of the classifiers are derived from the Confusion Matrix, where _precision_, _recall_, _F1-Score_ and _Support_ were considered. In terms of the confusion matrix for a binary case, four elements are considered:
+- True Positives (TP);
+- False Positives (FP);
+- False Negatives (FN); and
+- True Negatives (TN)
+arranged as following:
+
 
 
 ## Implementation
