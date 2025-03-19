@@ -182,7 +182,7 @@ Finally, applying the calculations, we can resume the resulting features for the
 | Entropy               | 2.81   | 2.26      | 1.01  | 2.36  | 1.79   |
 
 
-# Generating a CSV with the Database
+# 4. Generating a CSV with the Database
 
 To generate a csv with our database, we run our algorithm for each image and then save it in a line inside this file.
 ```python
@@ -245,7 +245,7 @@ def verifyFile(line,number,file_name) -> None:
         print(f"Line appended to {file_name}")
     return None
 ```
-# Classification
+# 5. Classification
 As previously discussed, the chosen classifiers for this task are Gaussian Naïve Bayes, Linear Discriminant Analysis (LDA), and Quadratic Discriminant Analysis (QDA).
 
 Below is a brief overview of their functionality:
@@ -335,7 +335,7 @@ qda_classifier = QuadraticDiscriminantAnalysis(reg_param=0.1)
 qda_classifier.fit(X_train_scaled, y_train)
 qda_predictions = qda_classifier.predict(X_test_scaled)
 ```
-# Model Evaluation and Cross Validation
+# 6. Model Evaluation and Cross Validation
 The metrics for measuring the effectiveness of the classifiers are derived from the Confusion Matrix, where _precision_, _recall_, _F1-Score_ and _Support_ were considered. In terms of the confusion matrix for a binary case, four elements are considered:
 - True Positives (TP);
 - False Positives (FP);
