@@ -13,23 +13,23 @@ The first section of this project is designed to import and manipulate images of
     <tr>
       <td align="center">
        <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_5.png" alt="Description" width="300">
-        <p><i>Breast X-ray</i></p>
+        <p><i>COVID</i></p>
       </td>
       <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_CDR05_0017.jpg" alt="Description" width="300">
-        <p><i>Brain X-ray</i></p>
+        <p><i>Alzheimer</i></p>
       </td>
       <td align="center">
        <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_Snap-310.jpg" alt="Description" width="300">
-        <p><i>Nut</i></p>
+        <p><i>SEED</i></p>
       </td>
       <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/resized-images/resized_WP_20160127_088.jpg" alt="Description" width="300">
-        <p><i>Leaf</i></p>
+        <p><i>LEAF</i></p>
       </td>
        <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/Image%20dataset/Skin_Cancer/1.jpg" alt="Description" width="300">
-        <p><i>Skin Cancer</i></p>
+        <p><i>SKIN CANCER</i></p>
       </td>
     </tr>
   </table>
