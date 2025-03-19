@@ -77,23 +77,23 @@ Then by applying the `matplotlib` library with 8 bins (8 bits quantization of th
     <tr>
       <td align="center">
        <img src="https://github.com/luso-torres/imageProcessing/blob/main/pmfs/covid_pmf.png" alt="Description" width="300">
-        <p><i>Breast X-ray</i></p>
+        <p><i>COVID</i></p>
       </td>
       <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/pmfs/alzheimer_pmf.png" alt="Description" width="300">
-        <p><i>Brain X-ray</i></p>
+        <p><i>ALZHEIMER</i></p>
       </td>
       <td align="center">
        <img src="https://github.com/luso-torres/imageProcessing/blob/main/pmfs/seed_pmf.png" alt="Description" width="300">
-        <p><i>Nut</i></p>
+        <p><i>SEED</i></p>
       </td>
       <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/pmfs/leaf_pmf.png" alt="Description" width="300">
-        <p><i>Leaf</i></p>
+        <p><i>LEAF</i></p>
       </td>
        <td align="center">
         <img src="https://github.com/luso-torres/imageProcessing/blob/main/pmfs/cancer_pmf.png" alt="Description" width="300">
-        <p><i>Skin Cancer</i></p>
+        <p><i>SKIN CANCER</i></p>
       </td>
     </tr>
   </table>
