@@ -52,8 +52,10 @@ Responsible for reading the images and converting them in a grayscale equivalent
 
 ## 3. Generating the Histograms
 
-The following histograms were obtained by the logic:
-``` python
+The following histograms were obtained by the labels `unique_values` and `counts`, the first one identifying the quantization of the original image (0 to 256) according to the bin informed `num_levels`,(i.e. for 8 bins: 0, 32, 64, 96, 128, 160, 192, 224) and `counts` representing the frequency of each bin. 
+<details><summary>Histogram Evaluation</summary> 
+
+  ``` python
 unique, countsv = np.unique(requantized_image, return_counts=True)
 
 # Bins correction (inserting the zero states)
@@ -70,7 +72,7 @@ pmf = [0]*int(num_levels)
 for i in range(num_levels):
     pmf[i] = round(counts[i]/float((sum(counts))),4)
 ```
-
+</details>
 Then by applying the `matplotlib` library with 8 bins (8 bits quantization of the original image):
 <div align="center">
   <table>
