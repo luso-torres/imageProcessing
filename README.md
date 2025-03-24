@@ -106,7 +106,9 @@ For this project the following features will be considered: Mean, Expected Value
 
 <details><summary> Click here to see an explanation of each feature
 </summary>
-Mean, representing the central value of our dataset, expressed in terms of: 
+  
+## Mean $\mu$
+Represents the central value of our dataset, expressed in terms of: 
 
 $$\bar{X} = \frac{1}{N}\sum_{x=0}^{N-1} P_X (x)$$
 
@@ -116,7 +118,8 @@ where
 - $P_X$ is the probability mass function of the random variable X.
 - $x$ is the $i$-th random variable of the sum operation.
 
-The expectation operator, representing a long-term average we would expect if you repeated it infinitely under the same conditions:
+## Expectation operator $\mathbb{E}[X]$
+Represents a long-term average we would expect if you repeated it infinitely under the same conditions:
 
 $$\mathbb{E}[X] = \mu_X = \sum_{x=0}^{N-1} xP_X(x) $$
 
@@ -126,7 +129,8 @@ where
 - $N$ is the total number of samples
 - $P_X$ is the probability mass function of the random variable X
 
-The mode, which represents the value with most frequency, obtained for example with:
+## Mode 
+Represents the value with most frequency, obtained for example with:
 ```python
 def mode(num_levels,pmf) -> int:
     maxV = -np.inf # initialize
@@ -137,7 +141,8 @@ def mode(num_levels,pmf) -> int:
     return position
 ```
 
-The median, which divides the data in two equal sizes of 50%, obtained in terms of the Cumulative Distribution Function (CDF):
+## Median
+Divides the data in two equal sizes of 50%, obtained in terms of the Cumulative Distribution Function (CDF):
 ```python
 def median(num_levels,pmf) -> int:
     cdf = [0]*num_levels #initialize
@@ -148,7 +153,8 @@ def median(num_levels,pmf) -> int:
             return i
 ```
 
-Variance, also known as second order central moment of our data, reflecting the dispersion or degree of spreadness of the dataset. It shows how much individual values deviate from the mean. It can be obtained by:
+## Variance
+Also known as second order central moment of our data, reflects the dispersion or degree of spreadness of the dataset. It shows how much individual values deviate from the mean. It can be obtained by:
 
 $$Var(X) = \sigma^2 = E[(X-\mu_X)^2] = \sum_{x=0}^{N-1} x^2P_X(x)$$
 
@@ -156,24 +162,27 @@ where
 - $\sigma$ represents the standard deviation.
 - $\sigma^2$ the variance (squared value of the standard deviation).
 - 
-_Skewness_, characterizing the imbalance or asymmetry of data around its mean:
+## _Skewness_
+characterizes the imbalance or asymmetry of data around its mean:
 
 $$\bar{\mu}_3= \mathbb{E}\left[ \left(\frac{X-\mu_X}{\sigma_X}\right)^3 \right]  = \frac{\mu_3}{\sigma_x^3}$$
 
-_Kurtosis_, characterizing the peakedness or shape of data distribution tails. Higher peakedness suggests sharper peaks, whereas lower _kurtosis_ indicates flatter peaks. The mathematical representation is:
+## _Kurtosis_
+Characterizes the peakedness or shape of data distribution tails. Higher peakedness suggests sharper peaks, whereas lower _kurtosis_ indicates flatter peaks. The mathematical representation is:
 
 $$kurt[X]= \frac{\mu_4}{\sigma_4}=\left[\frac{\mathbb{E}\left[(X-\mu_X)^4\right]}{\left( \mathbb{E}[(X - \mu_X)^2]\right)^2}\right]$$
 
 Both _skewness_ and _kurtosis_ are given in terms of the third and fourth-order central moments, as we can observe by their definitions.
 
+## Shannon's Entropy $\mathcal{H}$
 Finally, the last feature is given in terms of the Shannon's Entropy, expressing the minimal number of bits necessary to represent a quantized image:
 
-$$\mathcal{E} = - \sum_{x=0}^{N-1} P_X(x) log_2 [P_X(x)]$$
+$$\mathcal{H} = - \sum_{x=0}^{N-1} P_X(x) log_2 [P_X(x)]$$
 
 
   
 </details>
-Finally, applying the calculations, we can resume the resulting features for the five figures in the table bellow:
+By applying each definition, the resulting features for the five figures are resumed in the table bellow:
 
 | **Feature**           | COVID  | Alzheimer | Seed  | Leaf  | Cancer |
 |------------------------|--------|-----------|-------|-------|--------|
@@ -230,8 +239,35 @@ else:
         number =4
 ```
 
-To save the values of each image as a row, the following two functions were elaborated:
+To save the values of each image as a row, two functions were elaborated: `initialization.py`, which creates the csv file in the directory and `verify_file.py` that saves each row containing the features.
+
+<details>
+<summary>Click here to see the full description of the functions</summary>
+
 ```python
+import os
+def initialize(line_to_append,file_name):
+    print("File initialized")
+    if os.path.exists(file_name):
+        with open(file_name, "r") as file:
+            content = file.read()  # Read the content of the file
+
+        if content.__contains__(line_to_append):
+            print(f"Line already exists in {file_name}")
+            return  # Exit if the line already exists
+    else:
+        # If the file doesn't exist, it will be created when we append
+        print(f"{file_name} does not exist. It will be created.")
+        with open(file_name,"a") as file:
+            file.write(line_to_append+'\n')
+
+    return
+```
+
+  
+  ```python
+import os
+import numpy as np
 def verifyFile(line,number,file_name) -> None:
     line_to_append = f'{line},{number}'
 
@@ -253,10 +289,12 @@ def verifyFile(line,number,file_name) -> None:
         print(f"Line appended to {file_name}")
     return None
 ```
+</details>
+
 # 5. Classification
 As previously discussed, the chosen classifiers for this task are Gaussian Naïve Bayes, Linear Discriminant Analysis (LDA), and Quadratic Discriminant Analysis (QDA).
 
-Below is a brief overview of their functionality:
+<details><summary> Click here to check a brief overview</summary>
 
 ## Linear Discriminant Analysis (LDA)
 Linear Discriminant Analysis (LDA) is a probabilistic classifier that identifies a projection maximizing the separation between class means while minimizing variance within each class. LDA operates under the following assumptions:
@@ -267,7 +305,7 @@ Linear Discriminant Analysis (LDA) is a probabilistic classifier that identifies
 
 LDA relies on the estimated mean vector ($\mu$) and covariance matrix ($\Sigma$) for each class to compute the discriminant function:
 
-$$ g_i(x) = x^T\Sigma^{-1}\mu_i - \frac{1}{2} \mu_i^T\Sigma^{-1}\mu_i + \ln P(y=i) $$
+$$g_i(x) = x^T\Sigma^{-1}\mu_i - \frac{1}{2} \mu_i^T\Sigma^{-1}\mu_i + \ln P(y=i) $$
 
 Where:
 
@@ -279,14 +317,14 @@ Quadratic Discriminant Analysis (QDA) extends LDA by relaxing the assumption of 
 
 Like LDA, QDA begins by estimating the mean vector ($\mu_i$) and covariance matrix ($\Sigma_i$) for each class. The discriminant function for QDA is given by:
 
-$$ g_i(x) = -\frac{1}{2}(x-\mu_i)^T\Sigma_i^{-1}(x-\mu_i) - \frac{1}{2} \ln |\Sigma_i| + \ln P(y=i) $$
+$$g_i(x) = -\frac{1}{2}(x-\mu_i)^T\Sigma_i^{-1}(x-\mu_i) - \frac{1}{2} \ln |\Sigma_i| + \ln P(y=i) $$
 
 With its curved decision boundary, QDA offers greater flexibility compared to LDA. However, this increased flexibility comes at the cost of requiring a larger training dataset.
 
 ## Gaussian Naïve Bayes
 Its a probabilistic classifier based on the Bayes Theorem:
 
-$$ P(y|X) = \frac{P(X|y)P(y)}{P(X)}$$
+$$P(y|X) = \frac{P(X|y)P(y)}{P(X)}$$
 
 Where:
 - $P(y|X)$ is the _a posteriori_ probability (the probability of class y given X). This probability is also known as the similarity (how well X fits y).
@@ -303,6 +341,8 @@ With respect to the types of Naïve Bayes classifiers, we have:
 1. Gaussian Naïve Bayes: Assume that the features follows a normal distribution.
 2. Multinomial Naïve Bayes: Utilized for cases where the features are counts or data frequencies, i.e., how much times a word appears in a document.
 3. Bernoulli Naïve Bayes: Operates with binary data.
+</details>
+
 
 ## Implementation:
 
