@@ -53,7 +53,7 @@ Responsible for reading the images and converting them in a grayscale equivalent
 ## 3. Generating the Histograms
 
 The following histograms were obtained by the labels `unique_values` and `counts`, the first one identifying the quantization of the original image (0 to 256) according to the bin informed `num_levels`,(i.e. for 8 bins: 0, 32, 64, 96, 128, 160, 192, 224) and `counts` representing the frequency of each bin. 
-<details><summary>Histogram Evaluation</summary> 
+<details><summary> Click here to see the code </summary> 
 
   ``` python
 unique, countsv = np.unique(requantized_image, return_counts=True)
@@ -102,7 +102,10 @@ Then by applying the `matplotlib` library with 8 bins (8 bits quantization of th
 </div>
 
 # Generating Features
-For this project the following features will be considered:
+For this project the following features will be considered: Mean, Expected Value, Mode, Median, Variance, Skewness, Kurtosis and Shannon's Entropy.
+
+<details><summary> Click here to see an explanation of each feature
+</summary>
 Mean, representing the central value of our dataset, expressed in terms of: 
 
 $$\bar{X} = \frac{1}{N}\sum_{x=0}^{N-1} P_X (x)$$
@@ -167,6 +170,9 @@ Finally, the last feature is given in terms of the Shannon's Entropy, expressing
 
 $$\mathcal{E} = - \sum_{x=0}^{N-1} P_X(x) log_2 [P_X(x)]$$
 
+
+  
+</details>
 Finally, applying the calculations, we can resume the resulting features for the five figures in the table bellow:
 
 | **Feature**           | COVID  | Alzheimer | Seed  | Leaf  | Cancer |
