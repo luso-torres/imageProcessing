@@ -391,7 +391,7 @@ The metrics for measuring the effectiveness of the classifiers are derived from 
 - True Negatives (TN)
 arranged as following:
 
-
+1
 
 ## Implementation
 `metrics.classification_report` and `metrics.confusion_matrix`
